@@ -3,5 +3,8 @@ export const ru = {
     home: {
       searchInput: "Напишите название продукта",
     },
+    product: {
+      addToCart: "B корзину",
+    },
   },
 } as const;

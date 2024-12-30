@@ -3,5 +3,8 @@ export const uz = {
     home: {
       searchInput: "Mahsulot nomini kiriting",
     },
+    product: {
+      addToCart: "Savatgachaga",
+    },
   },
 } as const;

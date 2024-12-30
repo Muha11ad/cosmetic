@@ -1,0 +1,17 @@
+@import "../../../app/styles/variables/variables.scss";
+
+.AddToCart {
+  display: flex;
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 5px;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-color: $price-color;
+  &:hover {
+    background-color: $main-green-color;
+    color: #fff;
+  }
+}

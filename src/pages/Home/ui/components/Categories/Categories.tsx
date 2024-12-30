@@ -4,8 +4,9 @@ import { Link } from "@/shared/ui/link";
 import cls from "../../home.module.scss";
 import { ICategoriesProps } from "./types";
 import { Col, Row } from "@/shared/ui/grid";
-import { CardTitle } from "@/shared/ui/Text";
+import { CategoryCardTitle } from "@/shared/ui/Text";
 import { classNames } from "@/shared/lib/classNames/classNames";
+import { useTranslation } from "@/shared/hooks/useTranslation";
 
 export const Categories: React.FC<ICategoriesProps> = ({ className }) => {
   const categories = [
@@ -37,32 +38,34 @@ export const Categories: React.FC<ICategoriesProps> = ({ className }) => {
         "https://img.freepik.com/premium-vector/women-skin-types-with-acne-problem-skin-enlarged-area-cosmetology-acne-wrinkles-age-spots-caring-skin-vector_454120-123.jpg?semt=ais_hybrid",
     },
   ];
-
+  const { currentLanguage } = useTranslation();
   const CardStyle = {
     padding: "10px",
     backgroundColor: "#fff",
     boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
   };
+  function renderCategories() {
+    return categories.map((category) => (
+      <Col key={category.name.en} md={6} sm={6} xs={6}>
+        <Card className={cls.CategoryCard} style={CardStyle} view="clear">
+          <Link className={cls.CategoryLink} href={`/${category.name.en}`}>
+            <img
+              src={category.imageUrl}
+              alt={category.name.en}
+              className={cls.CategoryImage}
+            />
+          </Link>
+          <CategoryCardTitle>
+            {category.name[currentLanguage]}
+          </CategoryCardTitle>
+        </Card>
+      </Col>
+    ));
+  }
   return (
     <section className={classNames([cls.MainHeader, className])}>
       <Row align="center" justify="between">
-        {categories.map((category) => (
-          <Col key={category.name.en} lg={12} md={12} sm={12}>
-            <Card className={cls.CategoryCard} style={CardStyle} view="clear">
-              <Link
-                className={cls.CategoryLink}
-                href={`/category/${category.name.en}`}
-              >
-                <img
-                  src={category.imageUrl}
-                  alt={category.name.en}
-                  className={cls.CategoryImage}
-                />
-              </Link>
-              <CardTitle>{category.name.en}</CardTitle>
-            </Card>
-          </Col>
-        ))}
+        {renderCategories()}
       </Row>
     </section>
   );
