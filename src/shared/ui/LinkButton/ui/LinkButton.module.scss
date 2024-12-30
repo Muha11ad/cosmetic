@@ -1,0 +1,17 @@
+.Button {
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    background: var(--g-color-base-brand) !important;
+    color: var(--g-color-white) !important;
+    transition: ease 300ms !important;
+
+    &:hover {
+        color: var(--g-color-white) !important;
+        background-color: var(--g-color-base-brand-hover) !important;
+    }
+
+    &:focus {
+        color: var(--g-color-white) !important;
+    }
+}

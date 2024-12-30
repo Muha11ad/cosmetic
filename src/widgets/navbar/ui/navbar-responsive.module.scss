@@ -1,0 +1,46 @@
+@include responsive($min, $breakpoint_lg) {
+	.Horizontal {
+		.NavLinks {
+			display: flex;
+		}
+		.SidebarToggleButton {
+			display: none !important;
+		}
+		.NavLinkButtons {
+			display: flex !important;
+		}
+	}
+}
+
+@include responsive($max, $breakpoint_lg) {
+	.Horizontal {
+		.NavLinks {
+			display: none;
+		}
+		.SelectorLanguages{
+			display: none;
+		}
+		.SidebarToggleButton {
+			display: flex;
+		}
+		.NavLinkButtons {
+			display: none !important;
+		}
+	}
+
+	.Vertical {
+		.NavLinks {
+			display: block;
+			height: 100%;
+			flex-direction: column;
+			padding: 35px 0;
+			margin-left: 0 !important;
+			li {
+				margin-top: 20px;
+			}
+		}
+		.SidebarToggleButton {
+			display: none !important;
+		}
+	}
+}

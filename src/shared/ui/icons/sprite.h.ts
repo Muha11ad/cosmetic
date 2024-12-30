@@ -1,0 +1,27 @@
+export interface SpritesMap {
+	common:
+		| "attachment"
+		| "bell"
+		| "calendar"
+		| "call"
+		| "chat"
+		| "clock"
+		| "close"
+		| "dots"
+		| "earmark"
+		| "email"
+		| "gear"
+		| "home"
+		| "list"
+		| "location"
+		| "print"
+		| "search"
+		| "sent"
+		| "sliders"
+		| "star"
+		| "suitcase"
+		| "three-dots-vertical"
+		| "trash"
+		| "user"
+		| "video";
+}

@@ -1,0 +1,45 @@
+@import "./navbar-responsive.module.scss";
+.Navbar {
+    .RegistrationButton {
+        font-weight: 500;
+        background-color: var(--g-color-base-brand);
+        color: var(--g-color-white);
+        transition: ease 300ms;
+
+        &:hover {
+            color: var(--g-color-white);
+            background-color: var(--g-color-base-brand-hover);
+        }
+    }
+
+    .SignInButton:hover {
+        color: var(--g-color-base-brand-hover);
+    }
+
+    &.Horizontal {
+        height: 100%;
+        padding: 0;
+    }
+
+    &.Vertical {
+        width: auto;
+    }
+}
+
+.NavLinks {
+    gap: 25px;
+    margin-left: 28px;
+    height: 15px;
+    list-style: none;
+    line-height: 1.1;
+    color: var(--g-color-black);
+
+    .ActiveLink {
+        color: var(--g-color-base-brand-hover);
+    }
+}
+
+a {
+    font-weight: 600;
+    color: var(--g-color-base-brand);
+}

@@ -1,0 +1,12 @@
+.Searchbar {
+  --yc-text-input-placeholder-color: var(--g-color-grey) !important;
+  --yc-text-input-border-color: var(--g-color-grey) !important;
+  --yc-text-input-text-color: var(--g-color-grey) !important;
+  --yc-text-input-border-radius: 8px !important;
+  --g-text-input-background-color: white;
+
+  .SearchbarIcon {
+    padding: 0 9px !important;
+    color: var(--g-color-grey) !important;
+  }
+}

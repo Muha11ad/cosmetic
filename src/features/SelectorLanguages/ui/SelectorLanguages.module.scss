@@ -1,0 +1,13 @@
+.SelectorLanguages {
+  border: none !important;
+  outline: none !important;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  &::-ms-expand {
+    display: none;
+  }
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--g-color-grey);
+  cursor: pointer;
+}
