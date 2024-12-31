@@ -9,9 +9,8 @@
   border-radius: 5px;
   justify-content: center;
   transition: all 0.3s ease;
-  background-color: $price-color;
+  background-color: $main-green-color;
   &:hover {
-    background-color: $main-green-color;
     color: #fff;
   }
 }

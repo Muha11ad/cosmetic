@@ -3,6 +3,7 @@ import cls from "./AddToCart.module.scss";
 import { Button } from "@/shared/ui/Button";
 import { ShoppingCart } from "@gravity-ui/icons";
 import { useTranslation } from "@/shared/hooks/useTranslation";
+
 export const AddToCart = () => {
   const { t } = useTranslation();
   return (

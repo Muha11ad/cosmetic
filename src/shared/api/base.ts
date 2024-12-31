@@ -1,51 +1,52 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import axios from "axios";
+import { ApiError } from "./types";
 
-export const API_URL = "http://localhost:9000";
+const BASE_URL = "http://localhost:9000/api";
 
-class ApiInstance {
-  private axiosGet: AxiosInstance;
-  private axiosPost: AxiosInstance;
+export const apiClient = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
-  constructor() {
-    (this.axiosGet = axios.create({
-      baseURL: API_URL,
-      timeout: 120000,
-    })),
-      (this.axiosPost = axios.create({
-        baseURL: API_URL,
-        timeout: 120000,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }));
-  }
-
-  async get<T>(
-    endpoint: string,
-    options: AxiosRequestConfig = {
-      withCredentials: true,
+export const baseApi = {
+  get: async <T>(url: string): Promise<T | ApiError> => {
+    try {
+      const response = await apiClient.get<T>(url);
+      return response.data;
+    } catch (e: any) {
+      return {
+        message: e.response?.data?.message || "An error occurred",
+        error: e.response?.data?.error || "Unknown Error",
+        statusCode: e.response?.status || 500,
+      };
     }
-  ): Promise<T> {
-    const response: AxiosResponse<T> = await this.axiosGet.get(
-      endpoint,
-      options
-    );
-    return response.data;
-  }
-  async post<T>(
-    endpoint: string,
-    data: any,
-    options: AxiosRequestConfig = {
-      withCredentials: true,
-    }
-  ): Promise<T> {
-    const response: AxiosResponse<T> = await this.axiosPost.post(
-      endpoint,
-      data,
-      options
-    );
-    return response.data;
-  }
-}
+  },
 
-export const apiInstance = new ApiInstance();
+  post: async <T, D>(url: string, data: D): Promise<T | ApiError> => {
+    try {
+      const response = await apiClient.post<T>(url, data);
+      return response.data;
+    } catch (e: any) {
+      return {
+        message: e.response?.data?.message || "An error occurred",
+        error: e.response?.data?.error || "Unknown Error",
+        statusCode: e.response?.status || 500,
+      };
+    }
+  },
+
+  put: async <T, D>(url: string, data: D): Promise<T | ApiError> => {
+    try {
+      const response = await apiClient.put<T>(url, data);
+      return response.data;
+    } catch (e: any) {
+      return {
+        message: e.response?.data?.message || "An error occurred",
+        error: e.response?.data?.error || "Unknown Error",
+        statusCode: e.response?.status || 500,
+      };
+    }
+  },
+};

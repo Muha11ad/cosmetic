@@ -9,7 +9,7 @@ interface IProductPriceProps {
 
 export const ProductPrice: FC<IProductPriceProps> = (props) => {
   return (
-    <p className={cls.ProductCardPrice}>
+    <p className={[cls.ProductCardPrice, props.className].join(" ")}>
       {addThousandSeparators(props.children)} sum
     </p>
   );

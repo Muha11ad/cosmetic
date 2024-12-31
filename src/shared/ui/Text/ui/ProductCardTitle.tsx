@@ -7,5 +7,9 @@ interface IProductCardTitleProps {
 }
 
 export const ProductCardTitle: FC<IProductCardTitleProps> = (props) => {
-  return <h4 className={cls.ProductCardTitle}>{props.children}</h4>;
+  return (
+    <h4 className={[cls.ProductCardTitle, props.className].join(" ")}>
+      {props.children}
+    </h4>
+  );
 };
