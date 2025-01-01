@@ -1,9 +1,9 @@
 import React from "react";
+import Link from "next/link";
+import { ILinkButton } from "../types";
 import cls from "./LinkButton.module.scss";
 import { Button as GravityButton, Icon } from "@gravity-ui/uikit";
 import { classNames } from "@/shared/lib/classNames/classNames";
-import { ILinkButton } from "../types";
-import Link from "next/link";
 
 export const LinkButton: React.FC<ILinkButton> = (props) => {
   const {

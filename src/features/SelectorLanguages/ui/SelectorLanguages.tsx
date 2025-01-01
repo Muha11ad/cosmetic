@@ -1,7 +1,9 @@
-import React, { useContext, useEffect } from "react";
-import cls from "./SelectorLanguages.module.scss";
-import { classNames } from "@/shared/lib/classNames/classNames";
+import { Icon } from "@gravity-ui/uikit";
+import ru from "../../../app/assets/ru.svg";
 import { ISelectorLanguages } from "../types";
+import cls from "./SelectorLanguages.module.scss";
+import React, { useContext, useEffect } from "react";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { I18nContext } from "@/shared/context/i18n/I18nContext";
 
 interface I18nContextValue {
@@ -35,7 +37,9 @@ export const SelectorLanguages: React.FC<ISelectorLanguages> = ({
       onChange={handleChange}
       className={classNames([cls.SelectorLanguages, className])}
     >
-      <option value="en">English</option>
+      <option value="en">
+        <Icon data={ru} />
+      </option>
       <option value="ru">Русский</option>
       <option value="uz">Uzbek</option>
     </select>

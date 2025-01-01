@@ -17,7 +17,6 @@ export const Header: React.FC = () => {
               alert(value);
             }}
           />
-          <SelectorLanguages className="mt-3" />
         </Flex>
       </Container>
     </header>
