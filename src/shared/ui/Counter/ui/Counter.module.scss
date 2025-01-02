@@ -1,0 +1,21 @@
+@import "../../../../app/styles/variables/variables.scss";
+.CounterButton {
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+  border-radius: 6px;
+  background-color: $main-green-color;
+  &:hover {
+    color: white;
+  }
+  color: white;
+  &:disabled {
+    color: white;
+    background: $disabled-color;
+  }
+}
+
+.CounterValue {
+  font-size: 14px;
+  font-weight: 600;
+}

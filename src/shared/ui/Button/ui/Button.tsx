@@ -1,7 +1,7 @@
 import React from "react";
-import { Button as GravityButton, Icon } from "@gravity-ui/uikit";
-import { classNames } from "@/shared/lib/classNames/classNames";
 import { ButtonProps } from "../types";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { Button as GravityButton, Icon } from "@gravity-ui/uikit";
 
 export const Button: React.FC<ButtonProps> = (props) => {
   const {

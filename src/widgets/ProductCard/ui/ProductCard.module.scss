@@ -3,10 +3,11 @@
     gap: 10px;
     display: flex;
     margin: 15px 0;
-    padding: 15px 10;
+    padding: 10px 15px;
     align-items: center;
     text-decoration: none;
     flex-direction: column;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
   &Image {
     border-radius: 12px;

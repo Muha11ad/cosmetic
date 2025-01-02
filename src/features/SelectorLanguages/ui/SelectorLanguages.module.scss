@@ -1,13 +1,19 @@
+@import "../../../app/styles/variables/variables.scss";
 .SelectorLanguages {
+  width: 50px;
+  height: 48px;
+  border-radius: 50%;
   border: none !important;
   outline: none !important;
+  color: white !important;
+  text-align: center;
   -moz-appearance: none;
   -webkit-appearance: none;
+  background: $main-green-color;
   &::-ms-expand {
     display: none;
   }
-  font-size: 14px;
+  font-size: 8px;
   font-weight: 600;
-  color: var(--g-color-grey);
   cursor: pointer;
 }

@@ -1,12 +1,12 @@
 {
-  "name": "empty-project",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.1.0",
+  "name": "empty-project",
   "scripts": {
     "dev": "next dev",
+    "lint": "next lint",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
     "@types/jest": "^29.5.11",
@@ -17,7 +17,6 @@
     "react-dom": "18.2.0",
     "react-i18next": "^15.0.2",
     "react-responsive-carousel": "^3.2.23",
-    "sass": "1.70.0",
     "zustand": "^4.5.1"
   },
   "devDependencies": {

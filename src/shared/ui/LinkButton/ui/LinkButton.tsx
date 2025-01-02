@@ -9,7 +9,7 @@ export const LinkButton: React.FC<ILinkButton> = (props) => {
   const {
     size = "l",
     iconSize = 14,
-    view = "normal",
+    view = "flat",
     width = "auto",
     children,
     iconStart,
