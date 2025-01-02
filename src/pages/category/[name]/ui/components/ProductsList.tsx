@@ -13,7 +13,7 @@ export const ProductsList: FC<IProductsListProps> = ({ categoryName }) => {
     useProductStore((state) => state);
 
   useEffect(() => {
-    getProductByCategoryName(categoryName);    
+    getProductByCategoryName(categoryName);
   }, [categoryName]);
 
   function renderProducts(products: IProduct[]) {
@@ -30,8 +30,6 @@ export const ProductsList: FC<IProductsListProps> = ({ categoryName }) => {
     } else if (error) {
       return <h2>{error}</h2>;
     } else {
-      console.log(products);
-      
       return renderProducts(products);
     }
   }

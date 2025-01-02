@@ -6,5 +6,8 @@ export const ru = {
     product: {
       addToCart: "B корзину",
     },
+    cart: {
+      linkToOrder: "Оформить заказ",
+    },
   },
 } as const;

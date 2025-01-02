@@ -21,7 +21,9 @@ export const useCategoryStore = create<CategoryStore>((set) => ({
     if ("error" in result) {
       set({ error: result.message, loading: false });
     } else {
-      set({ categories: result, loading: false });
+      setTimeout(() => {
+        set({ categories: result, loading: false });
+      }, 500);
     }
   },
 }));

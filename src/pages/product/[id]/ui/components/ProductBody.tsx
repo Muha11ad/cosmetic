@@ -12,7 +12,7 @@ export const ProductBody: FC<IProductBodyProps> = ({ product }) => {
   const { currentLanguage } = useTranslation();
   return (
     <Row className={cls.ProductBody}>
-      <p>Instruction : {product?.instruction[currentLanguage] || "No data"}</p>
+      <p> <strong>Instruction</strong> : {product?.instruction[currentLanguage] || "No data"}</p>
     </Row>
   );
 };

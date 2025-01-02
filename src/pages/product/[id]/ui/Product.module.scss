@@ -4,18 +4,24 @@
     font-size: 24px !important;
   }
   &Price {
+    margin: 0;
+    text-align: left;
     font-size: 20px !important;
-    text-align: right !important;
+  }
+  &AddToCart {
+    margin-left: auto;
   }
   &Body {
     padding: 10px;
-    color: white;
     margin: 20px 5px;
+    background: white;
+    color: $main-green-color;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px -7px 29px 0px;
+
     border-radius: 12px;
-    background: $main-green-color;
 
     &Top {
-      margin: 0 10px;
+      margin: 15px 0;
     }
   }
 }

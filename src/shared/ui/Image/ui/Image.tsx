@@ -12,12 +12,12 @@ export const Image: FC<ImageProps> = (props) => {
     if (url) {
       return url;
     }
-    return notFoundImage;
+    return notFoundImage.src;
   }
   return (
     <img
       alt={props.alt}
-      src={getImageUrl(props.src) as string}
+      src={getImageUrl(props.src)}
       className={[cls.Image, props.className].join(" ")}
     />
   );

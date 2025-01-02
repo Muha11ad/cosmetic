@@ -27,7 +27,9 @@ export const useProductStore = create<ProductStore>((set) => ({
     if ("error" in result) {
       set({ error: result.message, loading: false });
     } else {
-      set({ products: result, loading: false });
+      setTimeout(() => {
+        set({ products: result, loading: false });
+      }, 500);
     }
   },
 

@@ -4,7 +4,10 @@ export const en = {
       searchInput: "Type product name",
     },
     product: {
-      addToCart: "Add to cart",
+      addToCart: "To cart",
+    },
+    cart: {
+      linkToOrder: "To order",
     },
   },
 } as const;

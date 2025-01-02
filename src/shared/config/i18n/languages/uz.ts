@@ -6,5 +6,6 @@ export const uz = {
     product: {
       addToCart: "Savatgachaga",
     },
+    linkToOrder: "Buyurtma berish",
   },
 } as const;

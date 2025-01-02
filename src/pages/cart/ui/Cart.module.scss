@@ -1,0 +1,12 @@
+@import "../../../app/styles/variables/variables.scss";
+.ToOrderLink {
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  background-color: $main-green-color;
+  &:hover {
+    color: white !important;
+    opacity: 0.9;
+  }
+}
