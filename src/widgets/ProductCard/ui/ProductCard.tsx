@@ -16,6 +16,7 @@ interface IProductCardProps {
 
 export const ProductCard: FC<IProductCardProps> = ({ product }) => {
   const { currentLanguage } = useTranslation();
+
   return (
     <Card className={cls.ProductCardWrapper} view="clear">
       <Link href={`/product/${product.id}`}>
@@ -30,7 +31,7 @@ export const ProductCard: FC<IProductCardProps> = ({ product }) => {
           <ProductPrice children={product.price} />
         </Flex>
       </Link>
-      <AddToCart />
+      <AddToCart product={(product as IProduct) || {}} />
     </Card>
   );
 };

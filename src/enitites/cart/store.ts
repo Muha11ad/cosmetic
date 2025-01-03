@@ -1,25 +1,54 @@
 import { create } from "zustand";
-import { ICart } from "./types";
+import { ICartItem, ICart } from "./types";
 
 interface CartStore {
-  cart: {
-    [productId: string]: ICart;
-  };
-  addToCart: (cart: ICart) => void;
+  cart: ICart;
+  loadCart: () => void;
+  addToCart: (cartItem: ICartItem) => void;
+  deleteFromCart: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
 }
 
+function saveCartToLocalStorage(cart: ICart): void {
+  if (typeof window !== "undefined") {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+}
+
+function loadCartFromLocalStorage(): ICart | {} {
+  if (typeof window !== "undefined") {
+    const cart = localStorage.getItem("cart");
+    return cart ? JSON.parse(cart) : {};
+  }
+  return {};
+}
+
 export const useCartStore = create<CartStore>((set) => ({
-  cart: {},
-  addToCart: (cartItem: ICart) =>
-    set((state) => ({
-      cart: { ...state.cart, [cartItem.id]: cartItem },
-    })),
+  cart: loadCartFromLocalStorage(),
+  addToCart: (cartItem: ICartItem) =>
+    set((state) => {
+      const newCart = { ...state.cart, [cartItem.id]: cartItem };
+      saveCartToLocalStorage(newCart);
+      return { cart: newCart };
+    }),
   updateQuantity: (productId: string, quantity: number) =>
-    set((state) => ({
-      cart: {
+    set((state) => {
+      const newCart = {
         ...state.cart,
-        [productId]: { ...state.cart[productId], quantity: Math.max(0, quantity) }
-      },
-    })),
+        [productId]: {
+          ...state.cart[productId],
+          quantity: Math.max(0, quantity),
+        },
+      };
+      saveCartToLocalStorage(newCart);
+      return { cart: newCart };
+    }),
+  deleteFromCart: (productId: string) =>
+    set((state) => {
+      const newCart = { ...state.cart };
+      delete newCart[productId];
+      saveCartToLocalStorage(newCart);
+      return { cart: newCart };
+    }),
+  loadCart: () => set({ cart: loadCartFromLocalStorage() }),
 }));
